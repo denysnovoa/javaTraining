@@ -15,7 +15,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-public class StreamsWrapper {
+  public class StreamsWrapper {
 
   public FileInfo getInfo(String path) throws FileNotFoundException {
     File file = new File(path);
