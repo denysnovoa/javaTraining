@@ -11,6 +11,9 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 public class StreamsWrapper {
 
@@ -66,5 +69,10 @@ public class StreamsWrapper {
     FileOutputStream fileOutputStream = new FileOutputStream(path);
 
     fileOutputStream.getChannel().transferFrom(readableByteChannel, 0, Long.MAX_VALUE);
+  }
+
+  public Elements getLinksWithJsoap(String url) throws IOException {
+    Document document = Jsoup.connect(url).get();
+    return document.select("a[href]");
   }
 }
