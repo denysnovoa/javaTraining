@@ -6,20 +6,33 @@ public class ReservationDay {
 
   LocalDate date;
   Guest guest;
-  Boolean isFree = true;
 
-  public ReservationDay(LocalDate date, Guest guest) {
-    this.date = date;
-    this.guest = guest;
-    this.isFree = false;
+  public LocalDate getDate() {
+    return date;
   }
 
-  public void bookDay() {
-    isFree = false;
+  public void setDate(LocalDate date) {
+    this.date = date;
+  }
+
+  public Guest getGuest() {
+    return guest;
+  }
+
+  public ReservationDay(LocalDate date) {
+    this.date = date;
+  }
+
+  public void bookDay(Guest guest) {
+    this.guest = guest;
   }
 
   public void freeDay() {
-    isFree = true;
+    guest = null;
+  }
+
+  public Boolean isFreeDay() {
+    return guest == null;
   }
 
 }
