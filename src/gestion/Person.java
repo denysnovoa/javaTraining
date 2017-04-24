@@ -37,4 +37,9 @@ public class Person implements Serializable {
   public void setAddress(String address) {
     this.address = address;
   }
+
+  @Override
+  public String toString() {
+    return String.format("%s, %s. Email: %s", name, surName, address);
+  }
 }
